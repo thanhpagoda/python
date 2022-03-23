@@ -1,0 +1,41 @@
+from random import randint
+def kt(x,y):
+  kq=False
+  if x==0 and y=='b': kq=True
+  if x==1 and y=='a': kq=True
+  if x==2 and y=='a': kq=True
+  return kq
+n=3
+ch=['''1+1=?
+a.1
+b.2
+c.3
+d.4''','''1-1=?
+a.0
+b.2
+c.3
+d.4''','''1*1=?
+a.1
+b.2
+c.3
+d.4''']
+da=['b','a','a']
+dd=[True]*n
+d=0
+cd=True
+while cd:
+  x=randint(0,2)
+  while dd[x]==False:
+    x=randint(0,2)
+  dd[x]=False
+  print(ch[x])
+  tl=input('Bạn chọn đáp án nào: ')
+  if kt(x,tl):
+    print('Bạn giỏi quá')
+    d+=1
+    if d==3: 
+      print('win')
+      break
+  else:
+    print('Lose')
+    cd=False
